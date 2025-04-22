@@ -93,11 +93,11 @@ let instance = null;
 const handlerClick = (event) => {
   event.preventDefault();
 
-  const clickedImage = event.target.closest(".gallery-image");
-  if (!clickedImage) return;
+  if (!event.target.classList.contains("gallery-image")) return;
 
-  const original = clickedImage.dataset.source;
-  const description = clickedImage.alt;
+  const original = event.target.dataset.source;
+  const description = event.target.alt;
+
 
   instance = basicLightbox.create(`
     <div class="modal">
